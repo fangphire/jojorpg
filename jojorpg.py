@@ -2,10 +2,12 @@ import random
 from re import L
 import time
 from threading import Event
+import sys
+from time import sleep
 
 
 
-print('''       _            _         _____              
+words = '''       _            _         _____              
       | |          | |       |  __ \             
       | | ___      | | ___   | |__) |_ __   __ _ 
   _   | |/ _ \ _   | |/ _ \  |  _  /| '_ \ / _` |
@@ -14,9 +16,19 @@ print('''       _            _         _____
                                     | |     __/ |
                                     |_|    |___/ 
                                    
-                                   © Fang 2022''')
+                                   © Fang 2022 \n'''
+for char in words:
+                sleep(0.0001)
+                sys.stdout.write(char)
+                sys.stdout.flush()
 
-print("A text-based JoJo rpg game by Fang \n")
+words = "A text-based JoJo rpg game by Fang \n"
+for char in words:
+    sleep(0.1)
+    sys.stdout.write(char)
+    sys.stdout.flush()
+
+
 
 
 rand = random.randrange(9)
@@ -84,6 +96,7 @@ def period():
 period(); period(); period(); period(); period()
 
 Event().wait(1)
+
 user_stand = int(input('''Choose a stand:
 1. Star Platinum
 2. The World
@@ -93,42 +106,62 @@ user_stand = int(input('''Choose a stand:
 while True:
     if user_stand == 1:
         user_stand = Star_Platinum()
-        print('''You have chosen Star Platinum.
+        words = '''You have chosen Star Platinum.
         Your stats are: maxhealth = 200
         power = 90
         speed = 30
-        ability = "Star Platinum: Za Warudo (stops time for 3 seconds), Ora Ora Ora (150 dmg)"''')
+        ability = "Star Platinum: Za Warudo (stops time for 3 seconds), Ora Ora Ora (150 dmg)"'''
+        for char in words:
+            sleep(0.02)
+            sys.stdout.write(char)
+            sys.stdout.flush()
         break
 
     elif user_stand == 2:
         user_stand = The_World()
-        print('''You have chose The World.
+        words = '''You have chose The World.
         Your stats are: maxhealth = 180
         power = 80
         speed = 30
-        ability = "Za Warudo (stops time for 6 seconds), Muda Muda Muda (150 dmg)"''')
+        ability = "Za Warudo (stops time for 6 seconds), Muda Muda Muda (150 dmg)"'''
+        for char in words:
+            sleep(0.02)
+            sys.stdout.write(char)
+            sys.stdout.flush()
         break
 
     elif user_stand == 3:
         user_stand = Golden_Experience()
-        print('''You have chose Golden Experience.
+        words = '''You have chose Golden Experience.
         Your stats are: maxhealth = 120
         power = 60
         speed = 50
-        ability = "Self Heal (+60 health)"''')
+        ability = "Self Heal (+60 health)"'''
+        for char in words:
+            sleep(0.02)
+            sys.stdout.write(char)
+            sys.stdout.flush()
         break
 
     elif user_stand == 4:
         user_stand = King_Crimson
-        print('''You have chose King Crimson.
+        words = '''You have chose King Crimson.
         Your stats are: maxhealth = 100
         power = 85
         speed = 20
-        ability = "Time Skip (skips 5 second)"''')
+        ability = "Time Skip (skips 5 second)"'''
+        for char in words:
+            sleep(0.02)
+            sys.stdout.write(char)
+            sys.stdout.flush()
         break
 
     else:
-        ("Enter a valid number.")
+        words = "Enter a valid number."
+        for char in words:
+            sleep(0.02)
+            sys.stdout.write(char)
+            sys.stdout.flush()
         continue
 
 period()
@@ -137,22 +170,30 @@ def pause():
     Event().wait(0.5)
     print (".")
 
-print("You're walking in the streets of Morioh Town")
+words = "You're walking in the streets of Morioh Town \n"
+for char in words:
+    sleep(0.02)
+    sys.stdout.write(char)
+    sys.stdout.flush()
 
 def choose_passive():
     while True:
 
-        choice = int(input(print('''What are you going to do?
+        choice = int(input('''What are you going to do?
         1. Attack 
         2. Stats
         3. Run
         4. Ability
         5. Inventory
         6. Quests
-        7. Explore \n''')))
+        7. Explore \n'''))
 
         if choice == 1:
-            print("There's no one to attack")
+            words = "There's no one to attack"
+            for char in words:
+                sleep(0.02)
+                sys.stdout.write(char)
+                sys.stdout.flush()
             period()
             continue
 
@@ -164,58 +205,89 @@ def choose_passive():
             continue
 
         elif choice == 3:
-            print("There's no one to run away from")
+            words = "There's no one to run away from"
+            for char in words:
+                sleep(0.02)
+                sys.stdout.write(char)
+                sys.stdout.flush()
             period()
             continue
 
         elif choice == 4:
-            print("Your ability:", user_stand.ability)
+            words = "Your ability:", user_stand.ability
+            for char in words:
+                sleep(0.02)
+                sys.stdout.write(char)
+                sys.stdout.flush()
             period()
             continue
 
         elif choice == 5:
-            print("There's nothing in your possession.")
+            words = "There's nothing in your possession."
+            for char in words:
+                sleep(0.02)
+                sys.stdout.write(char)
+                sys.stdout.flush()
             period()
             continue
 
         elif choice == 6:
-            print("There are no quests, currently.")
+            words = "There are no quests, currently."
+            for char in words:
+                sleep(0.01)
+                sys.stdout.write(char)
+                sys.stdout.flush()
             period()
             continue
 
         elif choice == 7:
             period()
             period()
-            print("You go and explore the town.")
+            words = "You go and explore the town. \n"
+            for char in words:
+                sleep(0.02)
+                sys.stdout.write(char)
+                sys.stdout.flush()
             Event().wait(1)
-            print("You come across a strange house")
-            print('''You slowly walk in, there's a strange noise 
-    you look around to see a weird person, he attacks you!''')
+            words = '''You come across a strange house. You slowly walk in, there's a strange noise 
+you look around to see a weird person, he attacks you!'''
+            for char in words:
+                sleep(0.02)
+                sys.stdout.write(char)
+                sys.stdout.flush()
             pause(); pause(); pause()
             break
 
         else:
-            print("Choose a valid option!")
+            words = "Choose a valid option!"
+            for char in words:
+                sleep(0.02)
+                sys.stdout.write(char)
+                sys.stdout.flush()
             period()
             continue
 
 choose_passive()
         
-print('''The opponent uses his stand Za Hando
+words = '''The opponent uses his stand Za Hando
 His stats are: Health: 100
 Attack: 50
-Speed: 20''')
+Speed: 20 \n'''
+for char in words:
+    sleep(0.02)
+    sys.stdout.write(char)
+    sys.stdout.flush()
 
 
 while Za_Hando.health > 0:
-        choice = int(input(print('''What are you going to do?
+        choice = int(input('''What are you going to do?
         1. Attack 
         2. Stats
         3. Run
         4. Ability
         5. Inventory
         6. Quests
-        7. Explore \n''')))
+        7. Explore \n'''))
 
         if choice == 1:
             user_stand.attack()
@@ -248,27 +320,46 @@ while Za_Hando.health > 0:
             
 
         elif choice == 5:
-            print("There's nothing in your possession.")
+            words = "There's nothing in your possession."
+            for char in words:
+                sleep(0.02)
+                sys.stdout.write(char)
+                sys.stdout.flush()
             period()
             continue
 
         elif choice == 6:
-            print("There are no quests, currently.")
+            words = "There are no quests, currently."
+            for char in words:
+                sleep(0.01)
+                sys.stdout.write(char)
+                sys.stdout.flush()
             period()
             continue
-            
 
         elif choice == 7:
-            print("You can't do that now!")
+            words = "You can't do that now!" 
+            for char in words:
+                sleep(0.01)
+                sys.stdout.write(char)
+                sys.stdout.flush() 
             continue
             
 
         else:
-            print("Choose a valid option!")
+            words = "Choose a valid option!"
+            for char in words:
+                sleep(0.01)
+                sys.stdout.write(char)
+                sys.stdout.flush() 
             period()
             continue
 
-print("You have successfully defeated Za Hando and the Enemy User!")
+words = "You have successfully defeated Za Hando and the Enemy User!"
+for char in words:
+                sleep(0.01)
+                sys.stdout.write(char)
+                sys.stdout.flush()
 
 
 
