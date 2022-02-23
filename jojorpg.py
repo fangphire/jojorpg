@@ -31,14 +31,28 @@ for char in words:
 
 
 
-rand = random.randrange(9)
+rand = random.randrange(1, 9)
 
 class Star_Platinum(object):
     maxhealth = 200
     power = 90
     speed = 30
     health = maxhealth
-    ability = "Star Platinum: Za Warudo (stops time for 3 seconds), Ora Ora Ora (150 dmg)"
+    ability = "Star Platinum: Za Warudo (stops time for 3 seconds), Ora Ora Ora (80 dmg)"
+    def use_ability(self):
+        ab_num = input("Which ability would you like to use? (1/2): ")
+        if ab_num == "1":
+            print("You stopped time and attack the enemy!")
+            ab_dmg = random.randrange(70, 100)
+            Za_Hando.health = Za_Hando.health - ab_dmg
+            print("The enemy's health is now", Za_Hando.health)
+        elif ab_num == "2":
+            print("You barraged the enemy with your punches!")
+            Za_Hando.health = Za_Hando.health - 80
+            print("The enemy's health is now", Za_Hando.health)
+        else:
+            print("Input either 1 or 2")
+
     def attack(self):
         dmg = Star_Platinum.power / rand
         Za_Hando.health = Za_Hando.health - dmg 
@@ -50,7 +64,20 @@ class The_World(object):
     power = 80
     speed = 30
     health = maxhealth
-    ability = "Za Warudo (stops time for 6 seconds), Muda Muda Muda (150 dmg)"
+    def use_ability(self):
+        input("Which ability would you like to use? (1/2)")
+        if input == "1":
+            print("You stopped time and attack the enemy!")
+            ab_dmg = random.randrange(90, 120)
+            Za_Hando.health = Za_Hando.health - ab_dmg
+            print("The enemy's health is now", Za_Hando.health)
+        elif input == "2":
+            print("You barraged the enemy with your punches!")
+            Za_Hando.health = Za_Hando.health - 80
+            print("The enemy's health is now", Za_Hando.health)
+        else:
+            print("Input either 1 or 2")
+    ability = "Za Warudo (stops time for 6 seconds), Muda Muda Muda (80 dmg)"
     def attack(self):
         dmg = The_World.power / rand
         Za_Hando.health = Za_Hando.health - dmg
@@ -62,6 +89,13 @@ class Golden_Experience(object):
     speed = 50
     health = maxhealth
     ability = "Self Heal (+60 health)"
+    def use_ability(self):
+        input("Which ability would you like to use? (1)")
+        if input == "1":
+            print("You healed yourself!")
+            print("Your health is now", user_stand.health + 60)
+        else:
+            print("Input either 1 or 2")
     def attack(self):
         dmg = Golden_Experience.power / rand
         Za_Hando.health = Za_Hando.health - dmg
@@ -73,6 +107,15 @@ class King_Crimson(object):
     speed = 20
     health = maxhealth
     ability = "Time Skip (skips 5 second)"
+    def use_ability(self):
+        input("Which ability would you like to use? (1)")
+        if input == "1":
+            print("YOu skipped time and attacked the enemy!")
+            ab_dmg = random.randrange(80, 100)
+            Za_Hando.health = Za_Hando.health - ab_dmg
+            print("The enemy's health is now", Za_Hando.health)
+        else:
+            print("Input either 1 or 2")
     def attack(self):
         dmg = King_Crimson.power / rand
         Za_Hando.health = Za_Hando.health - dmg
@@ -279,7 +322,7 @@ for char in words:
     sys.stdout.flush()
 
 
-while Za_Hando.health > 0:
+while True:
         choice = int(input('''What are you going to do?
         1. Attack 
         2. Stats
@@ -288,6 +331,16 @@ while Za_Hando.health > 0:
         5. Inventory
         6. Quests
         7. Explore \n'''))
+
+
+        if Za_Hando.health <= 0:
+            break
+
+        if user_stand.health <= 0:
+            break
+        
+        Za_Hando.attack(user_stand)
+
 
         if choice == 1:
             user_stand.attack()
@@ -301,15 +354,15 @@ while Za_Hando.health > 0:
 
         elif choice == 3:
             print("Tried to run away but failed.")
-            Za_Hando.attack()
+            Za_Hando.attack(user_stand)
             period()
             continue
 
         elif choice == 4:
             print("Your ability:", user_stand.ability)
-            use_ab = input(print("Do you want to use your ability? (y/n): ")).lower.strip
+            use_ab = input("Do you want to use your ability? (y/n): ")
             if use_ab == "y":
-                pass
+                user_stand.use_ability()
             elif use_ab == "n":
                 continue
             else:
@@ -344,6 +397,7 @@ while Za_Hando.health > 0:
                 sys.stdout.write(char)
                 sys.stdout.flush() 
             continue
+
             
 
         else:
@@ -355,35 +409,33 @@ while Za_Hando.health > 0:
             period()
             continue
 
-words = "You have successfully defeated Za Hando and the Enemy User!"
-for char in words:
+if user_stand.health > 0:
+
+    words = "You have successfully defeated Za Hando and the Enemy User! \n"
+    for char in words:
+                sleep(0.01)
+                sys.stdout.write(char)
+                sys.stdout.flush()
+
+if Za_Hando.health > 0:
+    words = "The enemy defeated you! Better Luck Next Time! \n"
+    for char in words:
                 sleep(0.01)
                 sys.stdout.write(char)
                 sys.stdout.flush()
 
 
 
+words = "Well that's it for the game right now, cya idiots later!!!!!!!!!!!!!!!"
+for char in words:
+            sleep(0.09)
+            sys.stdout.write(char)
+            sys.stdout.flush()
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-        
 
 
 
